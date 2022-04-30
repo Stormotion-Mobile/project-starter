@@ -8,5 +8,8 @@
   ],
   "scripts": {
     "app": "yarn workspace @yourgreatapp/app"
+  },
+  "devDependencies": {
+    "typescript": "^4.6.3"
   }
 }
