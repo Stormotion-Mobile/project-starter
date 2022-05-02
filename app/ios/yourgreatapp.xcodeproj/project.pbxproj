@@ -17,12 +17,10 @@
 		AC95E87F281F24BB00CD2A24 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = AC95E87E281F24BB00CD2A24 /* Config.xcconfig */; };
 		AC95E8842820754A00CD2A24 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		AC95E8852820754A00CD2A24 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		AC95E8862820754A00CD2A24 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE04221CB463DA153CACB912 /* ExpoModulesProvider.swift */; };
 		AC95E88A2820754A00CD2A24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		AC95E88B2820754A00CD2A24 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = AC95E87E281F24BB00CD2A24 /* Config.xcconfig */; };
 		AC95E88C2820754A00CD2A24 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		AED3EC1A1144820C2D2685FC /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE04221CB463DA153CACB912 /* ExpoModulesProvider.swift */; };
-		EDFF89931580518C9A101C2D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7E6E66C2208E3926A198AA /* ExpoModulesProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,10 +34,10 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = yourgreatapp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = yourgreatapp/main.m; sourceTree = "<group>"; };
 		2C801076ADE31EC389FEFD65 /* libPods-App-yourgreatappDev.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-App-yourgreatappDev.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B4392A12AC88292D35C810B /* Pods-yourgreatapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yourgreatapp.debug.xcconfig"; path = "Target Support Files/Pods-yourgreatapp/Pods-yourgreatapp.debug.xcconfig"; sourceTree = "<group>"; };
+		3B4392A12AC88292D35C810B /* Pods-App-yourgreatapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-yourgreatapp.debug.xcconfig"; path = "Target Support Files/Pods-App-yourgreatapp/Pods-App-yourgreatapp.debug.xcconfig"; sourceTree = "<group>"; };
 		3CBFE1B23E262B1778986C03 /* libPods-App-yourgreatapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-App-yourgreatapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		515260986634D528F977D396 /* Pods-App-yourgreatapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-yourgreatapp.release.xcconfig"; path = "Target Support Files/Pods-App-yourgreatapp/Pods-App-yourgreatapp.release.xcconfig"; sourceTree = "<group>"; };
-		5709B34CF0A7D63546082F79 /* Pods-yourgreatapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yourgreatapp.release.xcconfig"; path = "Target Support Files/Pods-yourgreatapp/Pods-yourgreatapp.release.xcconfig"; sourceTree = "<group>"; };
+		5709B34CF0A7D63546082F79 /* Pods-App-yourgreatapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-yourgreatapp.release.xcconfig"; path = "Target Support Files/Pods-App-yourgreatapp/Pods-App-yourgreatapp.release.xcconfig"; sourceTree = "<group>"; };
 		5FEC12ECB9D5163D2709F679 /* Pods-App-yourgreatappDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-yourgreatappDev.debug.xcconfig"; path = "Target Support Files/Pods-App-yourgreatappDev/Pods-App-yourgreatappDev.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = yourgreatapp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8F03AF6723A9A8EF336DC1D4 /* Pods-App-yourgreatapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-yourgreatapp.debug.xcconfig"; path = "Target Support Files/Pods-App-yourgreatapp/Pods-App-yourgreatapp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -48,7 +46,7 @@
 		AC95E87E281F24BB00CD2A24 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		AC95E8932820754A00CD2A24 /* yourgreatappDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yourgreatappDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC95E8942820754A00CD2A24 /* yourgreatappDev-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "yourgreatappDev-Info.plist"; path = "/Users/polnikale/workspace/project-starter/app/ios/yourgreatappDev-Info.plist"; sourceTree = "<absolute>"; };
-		BE04221CB463DA153CACB912 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-yourgreatapp/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		BE04221CB463DA153CACB912 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-App-yourgreatapp/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -174,8 +172,8 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-yourgreatapp.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-yourgreatapp.release.xcconfig */,
+				3B4392A12AC88292D35C810B /* Pods-App-yourgreatapp.debug.xcconfig */,
+				5709B34CF0A7D63546082F79 /* Pods-App-yourgreatapp.release.xcconfig */,
 				8F03AF6723A9A8EF336DC1D4 /* Pods-App-yourgreatapp.debug.xcconfig */,
 				515260986634D528F977D396 /* Pods-App-yourgreatapp.release.xcconfig */,
 				5FEC12ECB9D5163D2709F679 /* Pods-App-yourgreatappDev.debug.xcconfig */,
@@ -308,7 +306,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+			shellScript = "set -e\n\nexport NODE_BINARY=node\n../../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -380,7 +378,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+			shellScript = "set -e\n\nexport NODE_BINARY=node\n../../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		AC95E88E2820754A00CD2A24 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -484,7 +482,6 @@
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				AED3EC1A1144820C2D2685FC /* ExpoModulesProvider.swift in Sources */,
-				EDFF89931580518C9A101C2D /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,7 +491,6 @@
 			files = (
 				AC95E8842820754A00CD2A24 /* AppDelegate.mm in Sources */,
 				AC95E8852820754A00CD2A24 /* main.m in Sources */,
-				AC95E8862820754A00CD2A24 /* ExpoModulesProvider.swift in Sources */,
 				A9076F14AE1FE530A5DF29C1 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
