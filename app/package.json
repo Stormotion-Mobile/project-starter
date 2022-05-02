@@ -7,7 +7,9 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "android:dev": "ENVFILE=.env.dev react-native run-android --variant=devDebug --appIdSuffix=dev",
+    "android:prod": "ENVFILE=.env.prod react-native run-android --variant=prodDebug"
   },
   "dependencies": {
     "@react-navigation/native": "^6.0.10",
