@@ -33,23 +33,15 @@
     "esModuleInterop": true /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */,
     "skipLibCheck": true /* Skip type checking of declaration files. */,
     "resolveJsonModule": true /* Allows importing modules with a ‘.json’ extension, which is a common practice in node projects. */,
-
     "paths": {
-      "@yourgreatapp/*": ["*/src/index.ts"]
+      "@yourgreatapp/*": ["./*/src/index.ts"]
     }
   },
 
   "references": [
     {
-      "path": "app"
+      "path": "./app"
     }
   ],
-  "exclude": [
-    "node_modules",
-    "babel.config.js",
-    "metro.config.js",
-    "jest.config.js",
-    "dist",
-    "*.d.ts"
-  ]
+  "exclude": ["node_modules", "dist", "*.d.ts"]
 }
