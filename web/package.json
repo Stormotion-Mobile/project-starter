@@ -28,7 +28,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "localize": "yarn workspace @yourgreatapp/shared localize web 1",
     "codegen": "graphql-codegen --config codegen.yml -r dotenv/config",
-    "postinstall": "yarn localize"
+    "postinstall": "yarn localize && yarn codegen"
   },
   "eslintConfig": {
     "extends": [
