@@ -75,4 +75,5 @@ Because the installation process is straightforward, and it's easier for you to 
 
 3. Creare you own `app/.env`, on the basis of `app/example.env`
 4. Replace basic `fragments`/`queries`/`mutations`/`subscriptions` files with ones you really need in your project
-5. Run the app using `package.json` script commands
+5. Install the dependencies, run the codegen
+6. Run the app using `package.json` script commands
