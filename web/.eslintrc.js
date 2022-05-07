@@ -3,28 +3,9 @@ module.exports = {
   globals: {
     JSX: true,
   },
-  plugins: ['react', 'react-hooks', 'react-native'],
+  plugins: ['react', 'react-hooks'],
 
   rules: {
-    'no-restricted-imports': [
-      1,
-      {
-        paths: [
-          {
-            importNames: [
-              'TouchableOpacity',
-              'TouchableNativeFeedback',
-              'TouchableHighlight',
-              'FlatList',
-            ],
-            message:
-              "Please, import it from 'react-native' to avoid unexpected errors.",
-            name: 'react-native-gesture-handler',
-          },
-        ],
-      },
-    ],
-
     'react/display-name': 0,
     'react/jsx-boolean-value': 0,
     'react/jsx-no-comment-textnodes': 2,
@@ -46,10 +27,7 @@ module.exports = {
 
     'react-hooks/exhaustive-deps': 1,
 
-    // Custom
     'react-hooks/rules-of-hooks': 2,
-    'react-native/no-inline-styles': 1,
-    'react-native/no-unused-styles': 1,
   },
 
   settings: {
