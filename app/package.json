@@ -15,7 +15,7 @@
     "codegen": "graphql-codegen --config codegen.yml -r dotenv/config",
     "postversion": "react-native-version",
     "localize": "yarn workspace @yourgreatapp/shared localize app 0",
-    "postinstall": "npx jetify && yarn localize && yarn codegen"
+    "postinstall": "npx jetify && yarn localize"
   },
   "dependencies": {
     "@apollo/client": "^3.6.2",

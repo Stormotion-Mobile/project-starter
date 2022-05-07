@@ -8,13 +8,11 @@ import {
 import {setContext} from '@apollo/client/link/context';
 import {WebSocketLink} from '@apollo/client/link/ws';
 import {getMainDefinition} from '@apollo/client/utilities';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {AsyncStorageWrapper, persistCache} from 'apollo3-cache-persist';
+import {LocalStorageWrapper, persistCache} from 'apollo3-cache-persist';
 import {useEffect, useState} from 'react';
-import Config from 'react-native-config';
+import {API_URL} from '../env';
 import {devError} from '../utils/loggingHelpers';
 
-const API_URL = Config.HASURA_API_URL;
 const WS_URL = API_URL.replace('http', 'ws');
 
 // Replace useIdToken/getIdToken with your auth system
@@ -88,7 +86,7 @@ const useRootApolloClient = () => {
     persistCache({
       cache: apolloCache,
       debug: __DEV__,
-      storage: new AsyncStorageWrapper(AsyncStorage),
+      storage: new LocalStorageWrapper(window.localStorage),
     }).catch(error => devError('Error restoring Apollo cache', error));
   }, []);
 
