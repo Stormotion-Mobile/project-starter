@@ -1,0 +1,12 @@
+{
+  "name": "@yourgreatapp/shared",
+  "version": "0.0.1",
+  "devDependencies": {
+    "@stormotion/google-sheets-localization-helpers": "^0.0.7",
+    "dotenv": "^16.0.0",
+    "ts-node": "^10.7.0"
+  },
+  "scripts": {
+    "localize": "ts-node syncLocales"
+  }
+}
