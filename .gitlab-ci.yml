@@ -1,0 +1,61 @@
+variables:
+  LC_ALL: 'en_US.UTF-8'
+  LANG: 'en_US.UTF-8'
+
+stages:
+  - beta
+
+release_android:
+  stage: beta
+  tags:
+    - shell
+  artifacts:
+    paths:
+      - app/android/app/build/outputs/
+  only:
+    - /^release\/android-.+$/
+  script:
+    # Create stage variables:
+    - name=${CI_COMMIT_REF_NAME/release\//} # "android-dev" or "android-release"
+    - postfix=${name/android-/} # "dev" or "release"
+    - prefix=$(echo $postfix | tr '[:lower:]' '[:upper:]' | awk '{print $1"_"}') # "DEV_" or "PROD_"
+    # Creating `.env` configuration file:
+    - dump-env -p "APP_${prefix}" -p "APP_${prefix}" > app/.env.$postfix
+    - echo $KEYSTORE | base64 -d > app/android/app.keystore
+    - echo $PLAY_CONSOLE | base64 -d > app/android/play_console.json
+    # Install packages:
+    - cd app
+    - yarn install
+    - bundle install
+    # Build app:
+    - cd ./fastlane
+    - bundle exec fastlane android beta --env $postfix
+
+release_ios:
+  stage: beta
+  tags:
+    - shell
+  only:
+    - /^release\/ios-.+$/
+  artifacts:
+    expire_in: 1 day
+    when: on_failure
+    public: false
+    paths:
+      - app/fastlane/ios-build.log
+  script:
+    # Create stage variables:
+    - name=${CI_COMMIT_REF_NAME/release\//} # "ios-dev" or "ios-prod"
+    - postfix=${name/ios-/} # "dev" or "prod"
+    - prefix=$(echo $postfix | tr '[:lower:]' '[:upper:]' | awk '{print $1"_"}') # "DEV_" or "PROD_"
+    # Creating `.env` configuration file:
+    - pip3 install dump-env
+    - dump-env -p "APP_${prefix}" -p "APP_${prefix}" > app/.env.$postfix
+    - dump-env -p 'APPLE_' > app/fastlane/.env
+    # Install packages:
+    - cd app
+    - yarn install
+    - bundle install
+    # Build app:
+    - cd ./fastlane
+    - bundle exec fastlane ios beta --env $postfix
