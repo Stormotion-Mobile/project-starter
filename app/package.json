@@ -10,6 +10,8 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "android:dev": "ENVFILE=.env.dev react-native run-android --variant=devDebug --appIdSuffix=dev",
     "android:prod": "ENVFILE=.env.prod react-native run-android --variant=prodDebug",
+    "ios:dev": "react-native run-ios --scheme \"yourgreatappDev\"",
+    "ios:prod": "react-native run-ios --scheme \"yourgreatapp\"",
     "postversion": "react-native-version"
   },
   "dependencies": {
