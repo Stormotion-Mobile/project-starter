@@ -1,0 +1,5 @@
+query users($where: user_bool_exp!) {
+  user(where: $where) {
+    ...User
+  }
+}
