@@ -1,0 +1,26 @@
+overwrite: true
+schema:
+  - ${HASURA_API_URL}:
+      headers:
+        x-hasura-admin-secret: ${HASURA_ADMIN_SECRET}
+documents:
+  - src/store/**/*.gql
+generates:
+  src/generated/graphql.tsx:
+    config:
+      apolloReactHooksImportFrom: '@apollo/client'
+      apolloReactCommonImportFrom: '@apollo/client'
+      reactApolloVersion: 3
+      noNamespaces: true
+      withHooks: true
+      withComponent: false
+      withHOC: false
+      useIndexSignature: true
+      preResolveTypes: true
+      scalars:
+        uuid: string
+        date: string
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo'
