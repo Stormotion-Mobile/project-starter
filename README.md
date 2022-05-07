@@ -65,6 +65,7 @@ Because the installation process is straightforward, and it's easier for you to 
 1. Change the `yourgreatapp` to any app identifier you'd like(using a command: COMMAND SHOULD BE HERE). Make sure you set up a separate `ios` app inside `itunesconnect` and android app inside `google play console`(for now, you can only create the dev one inside `Stormotion` team)
 
 2. Setup fastlane([full guide to setup from scha could be found here](https://wiki.stormotion.io/en/development/fastlane)):
+
    2.1. Create repo to store your certificates(or ask Alex to do it ;))
    2.2. Install gems inside `app` folder(`bundle install`)
    2.3. Run [`bundle exec fastlane match init`](https://docs.fastlane.tools/actions/match/)
@@ -73,4 +74,5 @@ Because the installation process is straightforward, and it's easier for you to 
    2.6 Once it's all done, you can fill in the envs inside fastlane_example, and copy-past `envs`, `Appfile`, `Fastfile`
 
 3. Creare you own `app/.env`, on the basis of `app/example.env`
-4. Run the app using `package.json` script commands
+4. Replace basic `fragments`/`queries`/`mutations`/`subscriptions` files with ones you really need in your project
+5. Run the app using `package.json` script commands
