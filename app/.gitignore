@@ -64,3 +64,4 @@ buck-out/
 ios/tmp.xcconfig
 
 .env
+**/generated/**.*

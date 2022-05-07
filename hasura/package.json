@@ -1,0 +1,12 @@
+{
+  "name": "@yourgreatapp/hasura",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "console": "hasura console",
+    "metadata-apply": "hasura metadata apply",
+    "metadata-reload": "hasura metadata reload",
+    "migrate-apply": "hasura migrate apply --database-name default"
+  }
+}
