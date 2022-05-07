@@ -40,7 +40,27 @@ Basic jobs for building/uploading the react/react-native. Keep in mind that
 
 ### Localization
 
+To add a new language, go to App.tsx and import the json file with the i18n-format translations.
+Add the file to resourses:
+
+```
+i18n.use(initReactI18next).init({
+  fallbackLng: 'en',
+  lng: Localization.locale,
+  resources: {
+    ...,
+    <newLang>
+  }
+})
+```
+
+### Sync Locales
+
 To make it work, setup the google sheet, pass the correct envs to shared/.env. Now your customer can edit it and everyone's happy
+
+NB! It requires that you have two variables in your .env file inside app directory:
+SHEET_ID - the id from the link to the spreadsheet
+GCP_API_KEY - the API key to GCP
 
 ### Basic fastlane(even though some of it you should setup yourself)
 
