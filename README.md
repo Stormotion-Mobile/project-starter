@@ -38,6 +38,10 @@ Basic jobs for building/uploading the react/react-native. Keep in mind that
 
 ### Apollo/Codegen
 
+### Localization
+
+To make it work, setup the google sheet, pass the correct envs to shared/.env. Now your customer can edit it and everyone's happy
+
 ### Basic fastlane(even though some of it you should setup yourself)
 
 ### Basic theming
