@@ -1,5 +1,7 @@
 Glad to see you've cloned this project.
 
+Before getting to working on the project, please read the [Guidelines](https://wiki.stormotion.io/en/development/guidelines)
+
 Let's take a look at what we have here and what we don't. And why
 
 # Global
