@@ -1,0 +1,9 @@
+- name: remote
+  definition:
+    url: '{{HASURA_GRAPHQL_API_URL}}/graphql'
+    timeout_seconds: 60
+    headers:
+      - name: x-api-key
+        value_from_env: X_API_KEY
+    forward_client_headers: true
+  comment: ""

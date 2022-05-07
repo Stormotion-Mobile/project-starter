@@ -1,0 +1,38 @@
+{
+  "name": "@yourgreatapp/api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "engines": {
+    "node": "16"
+  },
+  "scripts": {
+    "dev": "ts-node src/index",
+    "build": "tsc",
+    "lint": "eslint src/ --ext .js,.jsx,.ts,.tsx --fix",
+    "start": "node dist/index.js",
+    "localize": "yarn workspace @yourgreatapp/shared localize api 2",
+    "codegen": "graphql-codegen -r dotenv/config --config codegen.yml"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "2.3.1",
+    "@graphql-codegen/typescript": "2.4.2",
+    "@graphql-codegen/typescript-graphql-request": "^4.3.3",
+    "@graphql-codegen/typescript-operations": "^2.2.2",
+    "@types/node": "^16.11.12",
+    "ts-node": "^10.4.0"
+  },
+  "dependencies": {
+    "@humanwhocodes/env": "^2.2.0",
+    "apollo-server-core": "^3.6.1",
+    "apollo-server-express": "^3.6.1",
+    "class-validator": "^0.13.2",
+    "dotenv": "^11.0.0",
+    "express": "^4.17.2",
+    "graphql": "^15.3.0",
+    "graphql-scalars": "^1.14.1",
+    "i18next": "^21.6.6",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1"
+  }
+}

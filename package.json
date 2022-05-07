@@ -5,12 +5,15 @@
   "workspaces": [
     "web",
     "app",
-    "shared"
+    "shared",
+    "api"
   ],
   "scripts": {
     "app": "yarn workspace @yourgreatapp/app",
     "web": "yarn workspace @yourgreatapp/web",
-    "shared": "yarn workspace @yourgreatapp/shared"
+    "shared": "yarn workspace @yourgreatapp/shared",
+    "api": "yarn workspace @yourgreatapp/api",
+    "docker-up": "docker-compose -p yourgreatapp -f docker-compose-local.yml up -d"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.22.0",
