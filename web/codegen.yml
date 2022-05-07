@@ -1,8 +1,8 @@
 overwrite: true
 schema:
-  - ${HASURA_API_URL}:
+  - ${REACT_APP_HASURA_API_URL}:
       headers:
-        x-hasura-admin-secret: ${HASURA_ADMIN_SECRET}
+        x-hasura-admin-secret: ${REACT_APP_HASURA_ADMIN_SECRET}
 documents:
   - src/store/**/*.gql
 generates:

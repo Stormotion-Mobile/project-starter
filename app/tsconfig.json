@@ -6,7 +6,13 @@
     "declaration": true,
     "noEmit": true
   },
-  "include": ["app.json", "./**/*.tsx"],
+  "include": [
+    "app.json",
+    "./**/*.tsx",
+    "./**/*.ts",
+    "./**/*.d.ts",
+    "**/strings/*.json"
+  ],
   "exclude": [
     "node_modules",
     "babel.config.js",

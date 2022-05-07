@@ -1,6 +1,6 @@
 import {
-  createNativeStackNavigator,
   NativeStackNavigationOptions,
+  createNativeStackNavigator,
 } from '@react-navigation/native-stack';
 import React, {memo, useEffect, useMemo, useState} from 'react';
 import {StatusBar} from 'react-native';
