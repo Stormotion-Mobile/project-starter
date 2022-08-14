@@ -8,5 +8,8 @@
     "metadata-apply": "hasura metadata apply",
     "metadata-reload": "hasura metadata reload",
     "migrate-apply": "hasura migrate apply --database-name default"
+  },
+  "devDependencies": {
+    "hasura-cli": "2.6.1"
   }
 }
