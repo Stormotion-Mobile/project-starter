@@ -2,12 +2,23 @@
   "private": true,
   "version": "0.0.1",
   "name": "yourgreatapp",
-  "workspaces": [
-    "web",
-    "app",
-    "shared",
-    "api"
-  ],
+  "workspaces": {
+    "packages": [
+      "web",
+      "app",
+      "shared",
+      "api"
+    ],
+    "nohoist": [
+      "**/@react-native-async-storage/async-storage",
+      "**/react",
+      "**/react-dom",
+      "**/react-native",
+      "**/react-native/**",
+      "**/@expo",
+      "**/@expo/**"
+    ]
+  },
   "scripts": {
     "app": "yarn workspace @yourgreatapp/app",
     "web": "yarn workspace @yourgreatapp/web",
