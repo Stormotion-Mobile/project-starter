@@ -64,4 +64,8 @@ buck-out/
 ios/tmp.xcconfig
 
 .env
+.env.dev
+.env.prod
+!fastlane/.env.dev
+!fastlane/.env.prod
 **/generated/**.*
