@@ -1,5 +1,7 @@
 const exclusionList = require('metro-config/src/defaults/exclusionList');
 const {getMetroTools} = require('react-native-monorepo-tools');
+const {getDefaultConfig} = require('metro-config');
+const {resolver: defaultResolver} = getDefaultConfig.getDefaultValues();
 
 const monorepoMetroTools = getMetroTools();
 
@@ -19,5 +21,6 @@ module.exports = {
     // Ensure we resolve nohoist libraries from this directory.
     blockList: exclusionList(monorepoMetroTools.blockList),
     extraNodeModules: monorepoMetroTools.extraNodeModules,
+    sourceExts: [...defaultResolver.sourceExts, 'cjs'],
   },
 };
