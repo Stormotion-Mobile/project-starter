@@ -1,14 +1,10 @@
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React, {memo} from 'react';
+import {Text} from 'react-native';
 
 export type MainStackParamList = {};
 
-const Stack = createNativeStackNavigator<MainStackParamList>();
-
 const MainNavigator = () => {
-  return (
-    <Stack.Navigator>{/* Your screens, probably Tabs  */}</Stack.Navigator>
-  );
+  return <Text>MainNavigator</Text>;
 };
 
 export default memo(MainNavigator);
