@@ -11,6 +11,7 @@
     ],
     "nohoist": [
       "**/@react-native-async-storage/async-storage",
+      "**/react-native-config",
       "**/react",
       "**/react-dom",
       "**/react-native",
