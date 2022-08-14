@@ -1,0 +1,5 @@
+mutation updatProfile($id: uuid!, $_set: profile_set_input) {
+  update_profile(where: {id: {_eq: $id}}, _set: $_set) {
+    affected_rows
+  }
+}

@@ -1,5 +1,0 @@
-mutation updateUser($email: String!, $_set: user_set_input) {
-  update_user(where: {email: {_eq: $email}}, _set: $_set) {
-    affected_rows
-  }
-}
