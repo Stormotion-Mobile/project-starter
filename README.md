@@ -1,3 +1,118 @@
+## App
+
+1. Rename `app` to `app2`
+2. Call `npx react-native init yourgreatapp --template react-native-template-typescript`
+3. Rename `yourgreatapp` to `app`
+4. Remove yarn.lock
+5. Install dependencies & install Pods
+6. Remove `__tests__`
+7. Copy `codegen.yml`, `example.env`, `tsconfig.json`, `.eslintrc.js` from `app2` to `app`(replace if needed). Delete .prettierc.js
+8. Copy `fastlane` folder
+9. Copy `name`, `scripts` in `package.json` from `app2` to `app`
+10. (monorepo only) Copy `metro.config.js` from `app2` to `app`. run `yarn add -D react-native-monorepo-tools`
+11. Add apollo: `yarn add @apollo/client apollo3-cache-persist subscriptions-transport-ws` inside `app` folder. Checkout with Apollo if something changed
+12. Add codegen dev: `yarn add -D @graphql-codegen/cli @graphql-codegen/typescript-operations @graphql-codegen/typescript-react-apollo`
+13. Add eslint: `yarn add -D eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-react-native`
+14. Add i18next: `yarn add i18next react-i18next`
+15. Install expo modules: https://docs.expo.dev/bare/installing-expo-modules/
+16. Install react-navigation: `yarn add @react-native-async-storage/async-storage @react-navigation/native-stack @react-navigation/native react-native-safe-area-context react-native-screens`
+17. Add react-native-version. `yarn add -D react-native-version`
+18. Add react-native-config: `yarn add react-native-config`
+19. Don't forget to install pods once again ;)
+20. Bring back app/android/app/src/dev/res/values
+21. app/android/app/build.gradle:
+
+- add `apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"` after first line
+- change `enableHermes: false` to `enableHermes: true`
+- Add
+
+```
+project.ext.envConfigFiles = [
+    dev: ".env.dev",
+    prod: ".env.prod",
+]
+
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+```
+
+after `apply from: "../../node_modules/react-native/react.gradle"`
+
+- add `resValue "string", "build_config_package", "com.yourgreatapp"` in `android.defaultConfig`
+- add
+
+```
+flavorDimensions "default"
+    productFlavors {
+        dev {
+            dimension "default"
+            applicationIdSuffix ".dev"
+            versionNameSuffix "-dev"
+        }
+        prod {
+            dimension "default"
+        }
+    }
+```
+
+to `android` object
+
+21. Revise android-related code to make sure no changes are related `com.yourgreatapp` or `react-native-config`. If so, follow the steps once again or contact Nic
+22. https://github.com/luggit/react-native-config#availability-in-build-settings-and-infoplist (steps 1-5)
+23. Xcode
+
+- yourgreatapp -> Edit Scheme
+- Build -> Pre Actions -> + ->
+
+```
+cp "${PROJECT_DIR}/../.env.prod" "${PROJECT_DIR}/../.env"
+
+"${SRCROOT}/../node_modules/react-native-config/ios/ReactNativeConfig/BuildXCConfig.rb" "${SRCROOT}/.." "${SRCROOT}/tmp.xcconfig"
+
+```
+
+- Run -> Pre Actions -> + ->
+
+```
+cp "${PROJECT_DIR}/../.env.prod" "${PROJECT_DIR}/../.env"
+
+"${SRCROOT}/../node_modules/react-native-config/ios/ReactNativeConfig/BuildXCConfig.rb" "${SRCROOT}/.." "${SRCROOT}/tmp.xcconfig"
+```
+
+24. Xcode
+
+- Targets -> remove yourgreatappTests
+
+25. Xcode
+
+- Targets -> yourgreatapp -> right click -> duplicate -> yourgreatappDev
+- Find yourgreapp copy-Info.plist, rename to yourgreatappDev-Info.plist. Replace in finder 'yourgreatapp copy-Info.plist' to 'yourgreatappDev-Info.plist'
+- XCode -> scheme -> manage schemes -> slow double click on yourgreatapp copy -> yourgreatappDev
+
+26. Xcode
+
+- yourgreatapp -> Edit Scheme
+- Build -> Pre Actions -> + ->
+
+```
+cp "${PROJECT_DIR}/../.env.dev" "${PROJECT_DIR}/../.env"
+
+"${SRCROOT}/../node_modules/react-native-config/ios/ReactNativeConfig/BuildXCConfig.rb" "${SRCROOT}/.." "${SRCROOT}/tmp.xcconfig"
+
+```
+
+- Run -> Pre Actions -> + ->
+
+```
+cp "${PROJECT_DIR}/../.env.dev" "${PROJECT_DIR}/../.env"
+
+"${SRCROOT}/../node_modules/react-native-config/ios/ReactNativeConfig/BuildXCConfig.rb" "${SRCROOT}/.." "${SRCROOT}/tmp.xcconfig"
+```
+
+27. Copy App.tsx, src folder from `app2` to `app`
+28. Change Podfile to have abstract target on top, remove \*Tests
+29. Add missing files to gitignore(the one deleted in the bottom of the history)
+30. bundle add fastlane
+
 Glad to see you've cloned this project.
 
 Before getting to working on the project, please read the [Guidelines](https://wiki.stormotion.io/en/development/guidelines)
