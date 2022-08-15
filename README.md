@@ -112,6 +112,7 @@ cp "${PROJECT_DIR}/../.env.dev" "${PROJECT_DIR}/../.env"
 28. Change Podfile to have abstract target on top, remove \*Tests
 29. Add missing files to gitignore(the one deleted in the bottom of the history)
 30. bundle add fastlane
+31. Troubleshooting - in case you face an issue `Expo Build in XCODE gives error: CompileSwiftSources normal arm64 com.apple.xcode.tools.swift.compiler` - make sure you open Xcode -> Build Phases -> Compile Sources, it doesn't contain any duplicates or dangling references
 
 Glad to see you've cloned this project.
 
