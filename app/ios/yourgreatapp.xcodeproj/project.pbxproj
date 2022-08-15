@@ -17,11 +17,9 @@
 		AC79585B28A9A74500848159 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = AC79585A28A9A74500848159 /* Config.xcconfig */; };
 		AC79586028A9A81700848159 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		AC79586128A9A81700848159 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		AC79586228A9A81700848159 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC52B2BE086333429E08171E /* ExpoModulesProvider.swift */; };
 		AC79586628A9A81700848159 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		AC79586728A9A81700848159 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = AC79585A28A9A74500848159 /* Config.xcconfig */; };
 		AC79586828A9A81700848159 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		CD26F60B1A851633CB8A0442 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC52B2BE086333429E08171E /* ExpoModulesProvider.swift */; };
 		F162F4488E0E28A7ECF68038 /* libPods-App-yourgreatapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70FE27496CC010EF6B11D763 /* libPods-App-yourgreatapp.a */; };
 /* End PBXBuildFile section */
 
@@ -485,7 +483,6 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
-				CD26F60B1A851633CB8A0442 /* ExpoModulesProvider.swift in Sources */,
 				4340C8088F69B343D3328663 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,7 +493,6 @@
 			files = (
 				AC79586028A9A81700848159 /* AppDelegate.mm in Sources */,
 				AC79586128A9A81700848159 /* main.m in Sources */,
-				AC79586228A9A81700848159 /* ExpoModulesProvider.swift in Sources */,
 				75D734772F6D98A9018834E3 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
