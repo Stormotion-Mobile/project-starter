@@ -120,6 +120,42 @@ Before getting to working on the project, please read the [Guidelines](https://w
 
 Let's take a look at what we have here and what we don't. And why
 
+## Hasura
+
+1. Install hasura dependencies: `cd hasura && yarn`
+2. `yarn add -D hasura-cli@latest`. At this point you can go to `hasura/package.json` and see a new version. Suppose it's `2.15.1`
+
+3. Update `hasura/Dockerfile` to use this version:
+   For instance, before:
+
+```Dockerfile
+FROM hasura/graphql-engine:v2.6.1.cli-migrations-v3
+```
+
+After:
+
+```Dockerfile
+FROM hasura/graphql-engine:v2.15.1.cli-migrations-v3
+```
+
+4. Update `./docker-compose-local.yml`
+
+For instance, before:
+
+```yaml
+graphql-engine:
+  image: hasura/graphql-engine:v2.6.1
+```
+
+After:
+
+```yaml
+graphql-engine:
+  image: hasura/graphql-engine:v2.15.1
+```
+
+5. Make sure it's working correctly by running `yarn console`(don't forget to setup docker-compose-local on root)
+
 # Global
 
 ### apps

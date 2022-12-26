@@ -13,7 +13,7 @@ services:
       - postgres:/var/lib/postgresql/data
 
   graphql-engine:
-    image: hasura/graphql-engine:v2.6.1
+    image: hasura/graphql-engine:v2.15.1
     ports:
       - '8080:8080'
     depends_on:

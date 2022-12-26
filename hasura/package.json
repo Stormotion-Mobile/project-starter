@@ -10,6 +10,6 @@
     "migrate-apply": "hasura migrate apply --database-name default"
   },
   "devDependencies": {
-    "hasura-cli": "2.6.1"
+    "hasura-cli": "^2.15.1"
   }
 }
