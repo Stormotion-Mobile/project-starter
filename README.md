@@ -1,3 +1,7 @@
+## Root
+
+1. `yarn add -D -W @typescript-eslint/eslint-plugin@latest @typescript-eslint/parser@latest babel-eslint@latest eslint@latest eslint-config-prettier@latest eslint-plugin-eslint-comments@latest eslint-plugin-prettier@latest eslint-plugin-sort-keys-fix@latest eslint-plugin-unused-imports@latest prettier@latest typescript@latest`
+
 ## App
 
 1. Rename `app` to `app2`
@@ -182,7 +186,9 @@ graphql-engine:
 
 8. Move `tsconfig`, `.eslintrc.js`, `codegen.yml`, `Dockerfile`, `example.env` from `old_web` to `web`
 
-9. Make sure it works
+9. (testing only) `yarn localize`
+
+10. Make sure it works(`yarn start`)
 
 # Global
 
