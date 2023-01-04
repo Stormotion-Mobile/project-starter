@@ -11,6 +11,7 @@ import {getMainDefinition} from '@apollo/client/utilities';
 import {LocalStorageWrapper, persistCache} from 'apollo3-cache-persist';
 import {useEffect, useState} from 'react';
 import {API_URL} from '../env';
+import {isDev} from '../utils/dev';
 import {devError} from '../utils/loggingHelpers';
 
 const WS_URL = API_URL.replace('http', 'ws');
@@ -85,7 +86,7 @@ const useRootApolloClient = () => {
   useEffect(() => {
     persistCache({
       cache: apolloCache,
-      debug: __DEV__,
+      debug: isDev,
       storage: new LocalStorageWrapper(window.localStorage),
     }).catch(error => devError('Error restoring Apollo cache', error));
   }, []);
