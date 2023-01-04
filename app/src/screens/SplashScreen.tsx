@@ -11,10 +11,10 @@ const SplashScreen: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
-    justifyContent: 'center',
     alignItems: 'center',
+    display: 'flex',
     flex: 1,
+    justifyContent: 'center',
   },
 });
 

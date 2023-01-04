@@ -17,9 +17,6 @@ generates:
       withHOC: false
       useIndexSignature: true
       preResolveTypes: true
-      scalars:
-        uuid: string
-        date: string
     plugins:
       - 'typescript'
       - 'typescript-operations'

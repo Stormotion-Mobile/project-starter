@@ -3,10 +3,32 @@ variables:
   LANG: 'en_US.UTF-8'
 
 stages:
-  - beta
+  - release_android
+  - release_ios
+  - build_web
+  - deploy_web
+  - clear_web
 
+.build:
+  stage: build_web
+  tags:
+    - docker
+  image: docker:latest
+  services:
+    - docker:dind
+
+.doctl:
+  tags:
+    - docker
+  image:
+    name: digitalocean/doctl:latest
+    entrypoint: ['']
+  services:
+    - docker:dind
+
+# Android
 release_android:
-  stage: beta
+  stage: release_android
   tags:
     - shell
   artifacts:
@@ -31,8 +53,9 @@ release_android:
     - cd ./fastlane
     - bundle exec fastlane android beta --env $postfix
 
+# IOS
 release_ios:
-  stage: beta
+  stage: release_ios
   tags:
     - shell
   only:
@@ -59,3 +82,63 @@ release_ios:
     # Build app:
     - cd ./fastlane
     - bundle exec fastlane ios beta --env $postfix
+
+build_web:
+  extends: .build
+  only:
+    - /^release\/web-.+$/
+  script:
+    # Variables:
+    - name=${CI_COMMIT_REF_NAME/release\//} # "web-dev" or "web-prod"
+    - postfix=${name/web-/} # "dev" or "prod"
+    - prefix=$(echo $postfix | tr '[:lower:]' '[:upper:]' | awk '{print $1"_"}') # "DEV_" or "PROD_"
+
+    # Installing global dependencies:
+    - apk update && apk upgrade
+    - apk add py3-pip
+    - pip3 install dump-env
+
+    - cd web
+    - dump-env -p "WEB_${prefix}" > .env
+
+    - DOCKER_BUILDKIT=1 docker build --platform linux/amd64 -t $CI_REGISTRY_IMAGE/completely:$postfix .
+    - docker tag $CI_REGISTRY_IMAGE/completely:$postfix registry.digitalocean.com/completely/web:$postfix
+    - docker login -u $$DIGITALOCEAN_ACCESS_TOKEN -p $$DIGITALOCEAN_ACCESS_TOKEN registry.digitalocean.com
+
+    - docker push registry.digitalocean.com/completely/web:$postfix
+
+deploy_web:
+  stage: deploy_web
+  extends: .doctl
+  only:
+    - /^release\/web-.+$/
+  script:
+    # Variables:
+    - name=${CI_COMMIT_REF_NAME/release\//} # "web-dev" or "web-prod"
+    - postfix=${name/web-/} # "dev" or "prod"
+    - prefix=$(echo $postfix | tr '[:lower:]' '[:upper:]' | awk '{print $1"_"}') # "DEV_" or "PROD_"
+
+    - app_id_name="WEB_${prefix}DIGITALOCEAN_APP_ID"
+    - app_id=$(eval echo "\$${app_id_name}" | awk '{print $1}')
+
+    - /app/doctl auth init -t $$DIGITALOCEAN_ACCESS_TOKEN
+    - /app/doctl apps create-deployment $app_id
+
+clear:
+  extends: .doctl
+  stage: clear_web
+  only:
+    refs:
+      - schedules
+    variables:
+      - $SCHEDULE_TYPE == "clear"
+  script:
+    # Installing global dependencies:
+    - apk update && apk upgrade
+    - apk add jq
+
+    # Clear:
+    - /app/doctl registry login -t $DIGITALOCEAN_ACCESS_TOKEN
+    - /app/doctl registry repo delete-manifest web $(doctl registry repository list-manifests web --output json | jq ".[] | select (.tags == null) | .digest"  -r | tr '\n' ' ') -f
+    - /app/doctl registry garbage-collection start -f
+    - /app/doctl registry logout

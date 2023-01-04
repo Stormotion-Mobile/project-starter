@@ -1,0 +1,22 @@
+overwrite: true
+schema:
+  - ${HASURA_URL}:
+      headers:
+        x-hasura-admin-secret: ${HASURA_ADMIN_SECRET}
+documents:
+  - src/hasura/queries/*.gql
+  - src/hasura/mutations/*.gql
+  - src/hasura/fragments/*.gql
+generates:
+  src/generated/graphql.ts:
+    config:
+      scalars:
+        uuid: string
+        timestamp: Date
+        bit: string
+      namingConvention: keep
+      preResolveTypes: false
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request

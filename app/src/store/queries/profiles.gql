@@ -1,0 +1,5 @@
+query profiles($where: profile_bool_exp!) {
+  profile(where: $where) {
+    ...Profile
+  }
+}

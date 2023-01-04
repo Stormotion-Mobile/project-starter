@@ -2,26 +2,42 @@
   "private": true,
   "version": "0.0.1",
   "name": "yourgreatapp",
-  "workspaces": [
-    "web",
-    "app",
-    "shared"
-  ],
+  "workspaces": {
+    "packages": [
+      "web",
+      "app",
+      "shared",
+      "api"
+    ],
+    "nohoist": [
+      "**/@react-native-async-storage/async-storage",
+      "**/react-native-config",
+      "**/react",
+      "**/react-dom",
+      "**/react-native",
+      "**/react-native/**",
+      "**/@expo",
+      "**/@expo/**"
+    ]
+  },
   "scripts": {
     "app": "yarn workspace @yourgreatapp/app",
     "web": "yarn workspace @yourgreatapp/web",
-    "shared": "yarn workspace @yourgreatapp/shared"
+    "shared": "yarn workspace @yourgreatapp/shared",
+    "api": "yarn workspace @yourgreatapp/api",
+    "docker-up": "docker-compose -p yourgreatapp -f docker-compose-local.yml up -d"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.22.0",
-    "@typescript-eslint/parser": "^5.22.0",
+    "@typescript-eslint/eslint-plugin": "^5.48.0",
+    "@typescript-eslint/parser": "^5.48.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^8.14.0",
-    "eslint-config-prettier": "^8.5.0",
+    "eslint": "^8.31.0",
+    "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
-    "eslint-plugin-jest": "^26.1.5",
-    "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.6.2",
-    "typescript": "^4.6.3"
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-sort-keys-fix": "^1.1.2",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "prettier": "^2.8.1",
+    "typescript": "^4.9.4"
   }
 }

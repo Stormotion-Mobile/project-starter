@@ -8,6 +8,8 @@ import {initReactI18next} from 'react-i18next';
 import i18n from 'i18next';
 import en from './src/strings/en.json';
 import SplashScreen from './src/screens/SplashScreen';
+import {Text} from 'react-native';
+import Config from 'react-native-config';
 
 i18n.use(initReactI18next).init({
   compatibilityJSON: 'v3',
@@ -34,6 +36,7 @@ const App = () => {
 
   return (
     <SafeAreaProvider>
+      <Text>Config - {Config.HASURA_API_URL}</Text>
       <NavigationContainer>{Content}</NavigationContainer>
     </SafeAreaProvider>
   );
