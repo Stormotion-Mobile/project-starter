@@ -3,3 +3,5 @@ node_modules
 **/strings/*.json
 
 .env
+old_web
+old_app
