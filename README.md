@@ -156,6 +156,34 @@ graphql-engine:
 
 5. Make sure it's working correctly by running `yarn console`(don't forget to setup docker-compose-local on root)
 
+## API
+
+1. Install all dev dependencies: `yarn add -D @graphql-codegen/cli@latest @graphql-codegen/typescript@latest @graphql-codegen/typescript-graphql-request@latest @graphql-codegen/typescript-operations@latest @types/node@latest ts-node@latest`
+
+2. Install all dependencies: `yarn add @humanwhocodes/env@latest apollo-server-core@latest apollo-server-express@latest class-validator@latest dotenv@latest express@latest graphql@latest graphql-scalars@latest i18next@latest reflect-metadata@latest type-graphql@latest`
+
+3. Run the server: `yarn dev`, make sure api is accessible from `hasura`
+
+## Web
+
+1. Rename `web` to `old_web`
+
+2. Run `npx create-react-app web --template typescript`
+
+3. Move `src` from `old_web` to `web` - Before doing it make sure you don't overwrite anything
+
+4. Copy scripts, name from `old_web`'s `package.json` to `web`
+
+5. Add missing dependencies `yarn add dotenv i18next-browser-languagedetector react-router-dom @apollo/client apollo3-cache-persist react-i18next`
+
+6. Add missing dev dependencies: `yarn add -D eslint-plugin-react@latest eslint-plugin-react-hooks@latest @graphql-codegen/cli@latest @graphql-codegen/typescript@latest @graphql-codegen/typescript-operations@latest @graphql-codegen/typescript-react-apollo@latest`
+
+7. Adjust gitignore(add `generated` there)
+
+8. Move `tsconfig`, `.eslintrc.js`, `codegen.yml`, `Dockerfile`, `example.env` from `old_web` to `web`
+
+9. Make sure it works
+
 # Global
 
 ### apps

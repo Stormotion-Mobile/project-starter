@@ -15,23 +15,23 @@
     "codegen": "graphql-codegen -r dotenv/config --config codegen.yml"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "2.3.1",
-    "@graphql-codegen/typescript": "2.4.2",
-    "@graphql-codegen/typescript-graphql-request": "^4.3.3",
-    "@graphql-codegen/typescript-operations": "^2.2.2",
-    "@types/node": "^16.11.12",
-    "ts-node": "^10.4.0"
+    "@graphql-codegen/cli": "^2.16.2",
+    "@graphql-codegen/typescript": "^2.8.6",
+    "@graphql-codegen/typescript-graphql-request": "^4.5.8",
+    "@graphql-codegen/typescript-operations": "^2.5.11",
+    "@types/node": "^18.11.18",
+    "ts-node": "^10.9.1"
   },
   "dependencies": {
-    "@humanwhocodes/env": "^2.2.0",
-    "apollo-server-core": "^3.6.1",
-    "apollo-server-express": "^3.6.1",
-    "class-validator": "^0.13.2",
-    "dotenv": "^11.0.0",
-    "express": "^4.17.2",
-    "graphql": "^15.3.0",
-    "graphql-scalars": "^1.14.1",
-    "i18next": "^21.6.6",
+    "@humanwhocodes/env": "^2.2.2",
+    "apollo-server-core": "^3.11.1",
+    "apollo-server-express": "^3.11.1",
+    "class-validator": "^0.14.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "graphql": "^16.6.0",
+    "graphql-scalars": "^1.20.1",
+    "i18next": "^22.4.6",
     "reflect-metadata": "^0.1.13",
     "type-graphql": "^1.1.1"
   }
