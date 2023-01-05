@@ -4048,11 +4048,6 @@
   resolved "https://registry.npmjs.org/@repeaterjs/repeater/-/repeater-3.0.4.tgz"
   integrity sha512-AW8PKd6iX3vAZ0vA43nOUOnbq/X5ihgU+mSXXqunMkeQADGiqw/PY0JNeYtD5sr0PAy51YPgAPbDoeapv9r8WA==
 
-"@rnx-kit/align-deps@^2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@rnx-kit/align-deps/-/align-deps-2.0.2.tgz#81184ea7e2dda92c8971fa2e20cfba59c7c49eef"
-  integrity sha512-5nueMdnarQmSQyENxLjNtpFpcSIEQ2V1sBbU6nVQU4LWkqoD24wHYl4TLcEOOQS8VsL/MzD7O33SG3l4mzO1XA==
-
 "@rollup/plugin-babel@^5.2.0":
   version "5.3.1"
   resolved "https://registry.npmjs.org/@rollup/plugin-babel/-/plugin-babel-5.3.1.tgz"

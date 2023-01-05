@@ -39,7 +39,6 @@
     "@graphql-codegen/typescript-operations": "^2.5.11",
     "@graphql-codegen/typescript-react-apollo": "^3.3.7",
     "@react-native-community/eslint-config": "^2.0.0",
-    "@rnx-kit/align-deps": "^2.0.2",
     "@tsconfig/react-native": "^2.0.2",
     "@types/jest": "^26.0.23",
     "@types/react": "^18.0.21",
@@ -69,26 +68,5 @@
       "json",
       "node"
     ]
-  },
-  "rnx-kit": {
-    "kitType": "app",
-    "alignDeps": {
-      "requirements": [
-        "react-native@0.70"
-      ],
-      "capabilities": [
-        "babel-preset-react-native",
-        "core",
-        "core-android",
-        "core-ios",
-        "jest",
-        "navigation/native",
-        "react",
-        "react-test-renderer",
-        "safe-area",
-        "screens",
-        "storage"
-      ]
-    }
   }
 }

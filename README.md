@@ -65,7 +65,7 @@ to `android` object
 23. Xcode
 
 - yourgreatapp -> Edit Scheme
-  ![[./docs/edit_scheme.png]]
+  ![./docs/edit_scheme.png]
 - Build -> Pre Actions -> + -> New Run Script Action
 
 ```
@@ -91,7 +91,7 @@ Choose "Provide build settings from" - your scheme
 
 - Targets -> remove yourgreatappTests
 
-![[./docs.delete_tests.png]]
+![./docs.delete_tests.png]
 
 25. Xcode
 
@@ -100,8 +100,8 @@ Choose "Provide build settings from" - your scheme
 - XCode -> scheme -> manage schemes -> slow double click on yourgreatapp copy -> yourgreatappDev
 - Change yourgreatappDev displayname to contain "Dev"
 
-![[./docs.dev_target.png]]
-![[./docs.dev_scheme.png]]
+![./docs.dev_target.png]
+![./docs.dev_scheme.png]
 
 26. Xcode
 
@@ -159,19 +159,14 @@ env
 ```
 
 29. Add missing files to gitignore(the one deleted in the bottom of the history)
-30. bundle add fastlane
-31. Bring back `android` `values`.
-32. (optional, maybe shouldn't do it as it might downgrade react native). Run `dep-check`. This is a library which keeps track of all the important dependencies and understand which exact dependencies work well with each other. You need to run it to make sure you have all the stable libraries in place
+30. `bundle add fastlane`
+31. Bring back `android` `values` for `dev`
 
-- `yarn add @rnx-kit/align-deps --dev`
-- `yarn rnx-align-deps --init app`
-- `yarn rnx-align-deps --write`
-
-33. Troubleshooting - in case you face an issue `Expo Build in XCODE gives error: CompileSwiftSources normal arm64 com.apple.xcode.tools.swift.compiler` - make sure you open Xcode -> Build Phases -> Compile Sources, it doesn't contain any duplicates or dangling references
+32. Troubleshooting - in case you face an issue `Expo Build in XCODE gives error: CompileSwiftSources normal arm64 com.apple.xcode.tools.swift.compiler` - make sure you open Xcode -> Build Phases -> Compile Sources, it doesn't contain any duplicates or dangling references
 
 It should be something like this:
 
-![[./docs/pods_providers.png]]
+![./docs/pods_providers.png]
 
 ## Hasura
 
