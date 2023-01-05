@@ -65,7 +65,7 @@ to `android` object
 23. Xcode
 
 - yourgreatapp -> Edit Scheme
-  [[./docs/edit_scheme.png]]
+  [[docs/edit_scheme.png]]
 - Build -> Pre Actions -> + -> New Run Script Action
 
 ```
@@ -91,7 +91,7 @@ Choose "Provide build settings from" - your scheme
 
 - Targets -> remove yourgreatappTests
 
-[[./docs.delete_tests.png]]
+[[docs/delete_tests.png]]
 
 25. Xcode
 
@@ -100,8 +100,8 @@ Choose "Provide build settings from" - your scheme
 - XCode -> scheme -> manage schemes -> slow double click on yourgreatapp copy -> yourgreatappDev
 - Change yourgreatappDev displayname to contain "Dev"
 
-[[./docs.dev_target.png]]
-[[./docs.dev_scheme.png]]
+[[docs/dev_target.png]]
+[[docs/dev_scheme.png]]
 
 26. Xcode
 
@@ -166,7 +166,7 @@ env
 
 It should be something like this:
 
-[[./docs/pods_providers.png]]
+[[docs/pods_providers.png]]
 
 ## Hasura
 
