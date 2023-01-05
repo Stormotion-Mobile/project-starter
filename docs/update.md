@@ -76,7 +76,7 @@ to `android` object
 23. `Xcode`
 
 - yourgreatapp -> Edit Scheme
-  ![Docs image](docs/edit_scheme.png)
+  ![Docs image](edit_scheme.png)
 - Build -> Pre Actions -> + -> New Run Script Action
 
 ```
@@ -88,7 +88,7 @@ cp "${PROJECT_DIR}/../.env.prod" "${PROJECT_DIR}/../.env"
 
 Choose "Provide build settings from" - your scheme
 
-![Script](docs/prod_buildscript.png)
+![Script](prod_buildscript.png)
 
 - Run -> Pre Actions -> + -> New Run Script Action
 
@@ -100,13 +100,13 @@ cp "${PROJECT_DIR}/../.env.prod" "${PROJECT_DIR}/../.env"
 
 Choose "Provide build settings from" - your scheme
 
-![Script](docs/prod_runscript.png)
+![Script](prod_runscript.png)
 
 24. `Xcode`
 
 - Targets -> remove yourgreatappTests
 
-![Docs image](docs/delete_tests.png)
+![Docs image](delete_tests.png)
 
 25. `Xcode`
 
@@ -115,8 +115,8 @@ Choose "Provide build settings from" - your scheme
 - XCode -> scheme -> manage schemes -> slow double click on yourgreatapp copy -> yourgreatappDev
 - Change yourgreatappDev displayname to contain "Dev"
 
-![Docs image](docs/dev_target.png)
-![Docs image](docs/dev_scheme.png)
+![Docs image](dev_target.png)
+![Docs image](dev_scheme.png)
 
 26. `Xcode`
 
@@ -132,7 +132,7 @@ cp "${PROJECT_DIR}/../.env.dev" "${PROJECT_DIR}/../.env"
 
 Choose "Provide build settings from" - your scheme
 
-![Script](docs/dev_buildscript.png)
+![Script](dev_buildscript.png)
 
 - Run -> Pre Actions -> + ->
 
@@ -144,7 +144,7 @@ cp "${PROJECT_DIR}/../.env.dev" "${PROJECT_DIR}/../.env"
 
 Choose "Provide build settings from" - your scheme
 
-![Script](docs/dev_runscript.png)
+![Script](dev_runscript.png)
 
 27. Copy App.tsx, src folder from `old_app` to `app`
 28. Change Podfile to have abstract target on top, remove \*Tests
@@ -183,7 +183,7 @@ env
 
 It should be something like this:
 
-![Docs image](docs/pods_providers.png)
+![Docs image](pods_providers.png)
 
 ## Hasura
 
