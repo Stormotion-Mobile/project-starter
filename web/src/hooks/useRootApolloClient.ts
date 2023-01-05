@@ -14,6 +14,7 @@ import {API_URL} from '../env';
 import {isDev} from '../utils/dev';
 import {devError} from '../utils/loggingHelpers';
 
+console.log('api', API_URL);
 const WS_URL = API_URL.replace('http', 'ws');
 
 // Replace useIdToken/getIdToken with your auth system

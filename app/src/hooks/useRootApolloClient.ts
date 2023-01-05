@@ -15,7 +15,8 @@ import Config from 'react-native-config';
 import {devError} from '../utils/loggingHelpers';
 
 const API_URL = Config.HASURA_API_URL;
-const WS_URL = API_URL.replace('http', 'ws');
+console.log('c', Config);
+const WS_URL = API_URL?.replace('http', 'ws');
 
 // Replace useIdToken/getIdToken with your auth system
 const useIdToken = () => '12';

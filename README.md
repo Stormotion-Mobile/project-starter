@@ -4,16 +4,16 @@
 
 ## App
 
-1. Rename `app` to `app2`
+1. Rename `app` to `old_app`
 2. Call `npx react-native init yourgreatapp --template react-native-template-typescript`
-3. Rename `yourgreatapp` to `app`
+3. Rename `yourgreatapp` to `app`. Go to `app`
 4. Remove yarn.lock
 5. Install dependencies & install Pods
 6. Remove `__tests__`
-7. Copy `codegen.yml`, `example.env`, `tsconfig.json`, `.eslintrc.js` from `app2` to `app`(replace if needed). Delete .prettierc.js
+7. Copy `codegen.yml`, `example.env`, `tsconfig.json`, `.eslintrc.js` from `old_app` to `app`(replace if needed). Delete .prettierc.js
 8. Copy `fastlane` folder
-9. Copy `name`, `scripts` in `package.json` from `app2` to `app`
-10. (monorepo only) Copy `metro.config.js` from `app2` to `app`. run `yarn add -D react-native-monorepo-tools`
+9. Copy `name`, `scripts` in `package.json` from `old_app` to `app`
+10. Copy `metro.config.js` from `old_app` to `app`. run `yarn add -D react-native-monorepo-tools`
 11. Add apollo: `yarn add @apollo/client apollo3-cache-persist subscriptions-transport-ws` inside `app` folder. Checkout with Apollo if something changed
 12. Add codegen dev: `yarn add -D @graphql-codegen/cli @graphql-codegen/typescript-operations @graphql-codegen/typescript-react-apollo`
 13. Add eslint: `yarn add -D eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-react-native`
@@ -65,7 +65,8 @@ to `android` object
 23. Xcode
 
 - yourgreatapp -> Edit Scheme
-- Build -> Pre Actions -> + ->
+  ![[./docs/edit_scheme.png]]
+- Build -> Pre Actions -> + -> New Run Script Action
 
 ```
 cp "${PROJECT_DIR}/../.env.prod" "${PROJECT_DIR}/../.env"
@@ -74,28 +75,38 @@ cp "${PROJECT_DIR}/../.env.prod" "${PROJECT_DIR}/../.env"
 
 ```
 
-- Run -> Pre Actions -> + ->
+Choose "Provide build settings from" - your scheme
+
+- Run -> Pre Actions -> + -> New Run Script Action
 
 ```
 cp "${PROJECT_DIR}/../.env.prod" "${PROJECT_DIR}/../.env"
 
 "${SRCROOT}/../node_modules/react-native-config/ios/ReactNativeConfig/BuildXCConfig.rb" "${SRCROOT}/.." "${SRCROOT}/tmp.xcconfig"
 ```
+
+Choose "Provide build settings from" - your scheme
 
 24. Xcode
 
 - Targets -> remove yourgreatappTests
+
+![[./docs.delete_tests.png]]
 
 25. Xcode
 
 - Targets -> yourgreatapp -> right click -> duplicate -> yourgreatappDev
 - Find yourgreapp copy-Info.plist, rename to yourgreatappDev-Info.plist. Replace in finder 'yourgreatapp copy-Info.plist' to 'yourgreatappDev-Info.plist'
 - XCode -> scheme -> manage schemes -> slow double click on yourgreatapp copy -> yourgreatappDev
+- Change yourgreatappDev displayname to contain "Dev"
+
+![[./docs.dev_target.png]]
+![[./docs.dev_scheme.png]]
 
 26. Xcode
 
-- yourgreatapp -> Edit Scheme
-- Build -> Pre Actions -> + ->
+- yourgreatappDev -> Edit Scheme
+- Build -> Pre Actions -> + -> New Run Script Action
 
 ```
 cp "${PROJECT_DIR}/../.env.dev" "${PROJECT_DIR}/../.env"
@@ -103,6 +114,8 @@ cp "${PROJECT_DIR}/../.env.dev" "${PROJECT_DIR}/../.env"
 "${SRCROOT}/../node_modules/react-native-config/ios/ReactNativeConfig/BuildXCConfig.rb" "${SRCROOT}/.." "${SRCROOT}/tmp.xcconfig"
 
 ```
+
+Choose "Provide build settings from" - your scheme
 
 - Run -> Pre Actions -> + ->
 
@@ -112,17 +125,53 @@ cp "${PROJECT_DIR}/../.env.dev" "${PROJECT_DIR}/../.env"
 "${SRCROOT}/../node_modules/react-native-config/ios/ReactNativeConfig/BuildXCConfig.rb" "${SRCROOT}/.." "${SRCROOT}/tmp.xcconfig"
 ```
 
-27. Copy App.tsx, src folder from `app2` to `app`
+Choose "Provide build settings from" - your scheme
+
+27. Copy App.tsx, src folder from `old_app` to `app`
 28. Change Podfile to have abstract target on top, remove \*Tests
+
+Before:
+
+```
+target 'yourgreatapp' do
+ ...
+
+  target 'yourgreatappTests' do
+    inherit! :complete
+    # Pods for testing
+  end
+end
+```
+
+After:
+
+```
+abstract_target 'App` do
+
+  ...
+
+  target 'yourgreatapp' do
+  end
+
+  target 'yourgreatappDev' do
+  end
+env
+```
+
 29. Add missing files to gitignore(the one deleted in the bottom of the history)
 30. bundle add fastlane
-31. Troubleshooting - in case you face an issue `Expo Build in XCODE gives error: CompileSwiftSources normal arm64 com.apple.xcode.tools.swift.compiler` - make sure you open Xcode -> Build Phases -> Compile Sources, it doesn't contain any duplicates or dangling references
+31. Bring back `android` `values`.
+32. (optional, maybe shouldn't do it as it might downgrade react native). Run `dep-check`. This is a library which keeps track of all the important dependencies and understand which exact dependencies work well with each other. You need to run it to make sure you have all the stable libraries in place
 
-Glad to see you've cloned this project.
+- `yarn add @rnx-kit/align-deps --dev`
+- `yarn rnx-align-deps --init app`
+- `yarn rnx-align-deps --write`
 
-Before getting to working on the project, please read the [Guidelines](https://wiki.stormotion.io/en/development/guidelines)
+33. Troubleshooting - in case you face an issue `Expo Build in XCODE gives error: CompileSwiftSources normal arm64 com.apple.xcode.tools.swift.compiler` - make sure you open Xcode -> Build Phases -> Compile Sources, it doesn't contain any duplicates or dangling references
 
-Let's take a look at what we have here and what we don't. And why
+It should be something like this:
+
+![[./docs/pods_providers.png]]
 
 ## Hasura
 
@@ -191,6 +240,12 @@ graphql-engine:
 10. Make sure it works(`yarn start`)
 
 # Global
+
+Glad to see you've cloned this project.
+
+Before getting to working on the project, please read the [Guidelines](https://wiki.stormotion.io/en/development/guidelines)
+
+Let's take a look at what we have here and what we don't. And why
 
 ### apps
 
