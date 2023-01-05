@@ -62,7 +62,7 @@ to `android` object
 
 21. Revise android-related code to make sure no changes are related `com.yourgreatapp` or `react-native-config`. If so, follow the steps once again or contact Nic
 22. https://github.com/luggit/react-native-config#availability-in-build-settings-and-infoplist (steps 1-5)
-23. Xcode
+23. `Xcode`
 
 - yourgreatapp -> Edit Scheme
   ![Docs image](docs/edit_scheme.png)
@@ -77,6 +77,8 @@ cp "${PROJECT_DIR}/../.env.prod" "${PROJECT_DIR}/../.env"
 
 Choose "Provide build settings from" - your scheme
 
+![Script](docs/prod_buildscript.png)
+
 - Run -> Pre Actions -> + -> New Run Script Action
 
 ```
@@ -87,13 +89,15 @@ cp "${PROJECT_DIR}/../.env.prod" "${PROJECT_DIR}/../.env"
 
 Choose "Provide build settings from" - your scheme
 
-24. Xcode
+![Script](docs/prod_runscript.png)
+
+24. `Xcode`
 
 - Targets -> remove yourgreatappTests
 
 ![Docs image](docs/delete_tests.png)
 
-25. Xcode
+25. `Xcode`
 
 - Targets -> yourgreatapp -> right click -> duplicate -> yourgreatappDev
 - Find yourgreapp copy-Info.plist, rename to yourgreatappDev-Info.plist. Replace in finder 'yourgreatapp copy-Info.plist' to 'yourgreatappDev-Info.plist'
@@ -103,7 +107,7 @@ Choose "Provide build settings from" - your scheme
 ![Docs image](docs/dev_target.png)
 ![Docs image](docs/dev_scheme.png)
 
-26. Xcode
+26. `Xcode`
 
 - yourgreatappDev -> Edit Scheme
 - Build -> Pre Actions -> + -> New Run Script Action
@@ -117,6 +121,8 @@ cp "${PROJECT_DIR}/../.env.dev" "${PROJECT_DIR}/../.env"
 
 Choose "Provide build settings from" - your scheme
 
+![Script](docs/dev_buildscript.png)
+
 - Run -> Pre Actions -> + ->
 
 ```
@@ -126,6 +132,8 @@ cp "${PROJECT_DIR}/../.env.dev" "${PROJECT_DIR}/../.env"
 ```
 
 Choose "Provide build settings from" - your scheme
+
+![Script](docs/dev_runscript.png)
 
 27. Copy App.tsx, src folder from `old_app` to `app`
 28. Change Podfile to have abstract target on top, remove \*Tests
