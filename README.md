@@ -6,7 +6,9 @@ Before getting to working on the project, please read the [Guidelines](https://w
 
 ## [How to update](/docs/update.md)
 
-## [Overview][/docs/overview.md]
+## [Overview](/docs/overview.md)
+
+## [Template Next Steps](/docs/template_next_steps.md)
 
 ## What to do next
 
