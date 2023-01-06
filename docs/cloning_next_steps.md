@@ -63,3 +63,15 @@ To
 ### Server preparations
 
 Replace basic `fragments`/`queries`/`mutations`/`subscriptions` files with ones you really need in your project
+
+## `hasura`
+
+Start working and add your migrations
+
+## `api`
+
+Start working and add your endpoints
+
+## `web`
+
+Also nothing special from your side. Feel free to just work
