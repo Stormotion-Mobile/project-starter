@@ -14,7 +14,13 @@
     "ios:prod": "react-native run-ios --scheme \"yourgreatapp\"",
     "codegen": "graphql-codegen --config codegen.yml -r dotenv/config",
     "postversion": "react-native-version",
-    "localize": "yarn workspace @yourgreatapp/shared localize app 0"
+    "localize": "yarn workspace @yourgreatapp/shared localize app 0",
+    "postinstall": "patch-package"
+  },
+  "workspaces": {
+    "nohoist": [
+      "**"
+    ]
   },
   "dependencies": {
     "@apollo/client": "^3.7.3",
@@ -24,6 +30,8 @@
     "apollo3-cache-persist": "^0.14.1",
     "expo": "^47.0.0",
     "i18next": "^22.4.8",
+    "patch-package": "^6.5.1",
+    "postinstall-postinstall": "^2.1.0",
     "react": "18.1.0",
     "react-i18next": "^12.1.1",
     "react-native": "0.70.6",

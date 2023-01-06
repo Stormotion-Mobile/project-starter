@@ -1,0 +1,40 @@
+diff --git a/node_modules/expo-modules-core/android/build.gradle b/node_modules/expo-modules-core/android/build.gradle
+index 7777867..d2f09bd 100644
+--- a/node_modules/expo-modules-core/android/build.gradle
++++ b/node_modules/expo-modules-core/android/build.gradle
+@@ -8,6 +8,7 @@ apply plugin: "de.undercouch.download"
+ group = 'host.exp.exponent'
+ version = '1.1.0'
+ 
++
+ buildscript {
+   def expoModulesCorePlugin = new File(project(":expo-modules-core").projectDir.absolutePath, "ExpoModulesCorePlugin.gradle")
+   if (expoModulesCorePlugin.exists()) {
+@@ -404,10 +405,25 @@ def prepareBoost = tasks.register('prepareBoost', Copy) {
+   }
+ }
+ 
++void nativeBuildDependsOn(project, dependsOnTask, buildTypesIncludes) {
++   def buildTasks = project.tasks.findAll { task ->
++     def taskName = task.name
++     if (taskName.contains("Clean")) { return false }
++     if (taskName.contains("externalNative") || taskName.contains("CMake") || taskName.contains("generateJsonModel")) {
++       if (buildTypesIncludes == null) { return true }
++       for (buildType in buildTypesIncludes) {
++         if (taskName.contains(buildType)) { return true }
++       }
++     }
++     return false
++   }
++   buildTasks.forEach { task -> task.dependsOn(dependsOnTask) }
++ }
++
+ afterEvaluate {
+-  preBuild.dependsOn(prepareBoost)
++  nativeBuildDependsOn(project, prepareBoost, null)
+   if (USE_HERMES) {
+-    preBuild.dependsOn(prepareHermes)
++    nativeBuildDependsOn(project, prepareHermes, null)
+     if (hasHermesProject && !prebuiltHermesCacheHit) {
+       prepareHermes.dependsOn(":ReactAndroid:hermes-engine:assembleDebug")
+     }
